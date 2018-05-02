@@ -302,6 +302,8 @@ The Visibility plugin contains a couple of simple value converters which assist 
 
 These are `MvxVisibilityValueConverter` and `MvxInvertedVisibilityValueConverter` registered under the names "Visibility" and "InvertedVisibility".
 
+**Note:** The default behavior of theses converters is to toogle the visibility between "Visible" and "Collapsed". If you need to "Hide" an ui component, set the optional parameter to "true".
+
 On each platform, these allow ViewModel properties to be mapped to ui visibility properties. The basic logic of the Visibility test catches many common cases:
 
 - `string` - any non-null non-empty string is `visible`
@@ -315,7 +317,7 @@ If you require other visibility logic - e.g. if you need a mapping for a `nullab
 
 To use these converters on each platform, use:
 
-- Droid (not that in Droid there is no support for the `Invisible` state - cross platform, we only support `Visible` and `Gone`):
+- Droid:
   
         local:MvxBind="Visibility Visibility(VMProperty)"
         
